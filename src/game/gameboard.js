@@ -94,7 +94,7 @@ class GameBoard {
         return x === coordinate[0] && y === coordinate[1];
       })
     ) {
-      return;
+      return "marked";
     }
 
     // Mark coordinate
