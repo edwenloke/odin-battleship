@@ -119,6 +119,8 @@ class GameBoard {
     if (ship) {
       ship.hit();
 
+      if (ship.isSunk()) return "sunk";
+      
       return "hit";
     } else return "missed";
   }
