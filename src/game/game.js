@@ -39,6 +39,11 @@ function init() {
   // Setup computer's board
   randomlyPlaceShips(computerShips, computer);
 }
+// Data for dom.js
+function getPlayerShips() {
+  return playerShips;
+}
+
 // Prep game functions--------------------------------------------------------------------------------
 // Place ship on board---------------------------------------------------------
 // Self Place
@@ -264,4 +269,15 @@ const getAdjacentCoordinate = (coordinate) => {
     const coordinate = filterMarkedCoordinate(targetCoordinates);
     return coordinate;
   }
+};
+
+export {
+  getPlayerShips,
+  init,
+  placePlayerShip,
+  randomlyPlaceShips,
+  canStartGame,
+  attack,
+  gameOver,
+  computerPlay,
 };
