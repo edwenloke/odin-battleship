@@ -19,6 +19,15 @@ class GameBoard {
       return false;
     }
 
+    //   Out of bound
+    if (
+      coordinate.some(([x, y]) => {
+        return x < 0 || x > 9 || y < 0 || y > 9;
+      })
+    ) {
+      return false;
+    }
+
     // Save ship and its coordinate
     this.occupied.push(...coordinate);
     this.ships.set(ship, coordinate);
@@ -120,7 +129,7 @@ class GameBoard {
       ship.hit();
 
       if (ship.isSunk()) return "sunk";
-      
+
       return "hit";
     } else return "missed";
   }
