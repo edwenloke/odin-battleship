@@ -2,6 +2,7 @@ import {
   getPlayerShips,
   getPlayerGameBoard,
   getComputerGameBoard,
+  gameOver,
 } from "../game/game.js";
 
 // Create display for a new Ship()
@@ -134,9 +135,18 @@ function renderComputerBoard() {
   });
 }
 
+function showGameOver(message) {
+  const modal = document.querySelector(".modal");
+  const result = modal.querySelector(".result");
+
+  result.textContent = message;
+  modal.hidden = false;
+}
+
 export {
   renderShipList,
   changeDirection,
   renderPlayerBoard,
   renderComputerBoard,
+  showGameOver,
 };
