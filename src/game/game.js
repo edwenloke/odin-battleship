@@ -43,6 +43,12 @@ function init() {
 function getPlayerShips() {
   return playerShips;
 }
+function getPlayerGameBoard() {
+  return player;
+}
+function getComputerGameBoard() {
+  return computer;
+}
 
 // Prep game functions--------------------------------------------------------------------------------
 // Place ship on board---------------------------------------------------------
@@ -273,6 +279,8 @@ const getAdjacentCoordinate = (coordinate) => {
 
 export {
   getPlayerShips,
+  getPlayerGameBoard,
+  getComputerGameBoard,
   init,
   placePlayerShip,
   randomlyPlaceShips,
