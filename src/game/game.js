@@ -88,7 +88,7 @@ function attack(coordinate) {
   if (currentPlayer === player) {
     const status = computer.gameBoard.receiveAttack(coordinate);
 
-    if (status === "marked") return;
+    if (status === "marked") return "marked";
 
     switchPlayer();
 
