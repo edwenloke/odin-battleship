@@ -69,6 +69,8 @@ function createBoard(container) {
 function renderPlayerBoard() {
   const playerBoard = document.querySelector(".player-board");
 
+  playerBoard.innerHTML = "";
+
   createBoard(playerBoard);
 
   const boardCell = playerBoard.querySelectorAll(".board-cell");
@@ -105,6 +107,8 @@ function renderPlayerBoard() {
 
 function renderComputerBoard() {
   const computerBoard = document.querySelector(".computer-board");
+
+  computerBoard.innerHTML = "";
 
   createBoard(computerBoard);
 
