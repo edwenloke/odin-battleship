@@ -1,11 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BattleShip</title>
-</head>
-<body>
-    
-</body>
+  </head>
+
+  <body>
+    <h1>BattleShip</h1>
+
+    <div class="ships-panel">
+      <div class="ships-container">
+        <button class="rotate-btn">⟳ Rotate</button>
+
+        <div class="ship-list"></div>
+      </div>
+
+      <button class="random-btn">🎲Randomize</button>
+    </div>
+
+    <div class="boards">
+      <div class="player-board"></div>
+      <div class="computer-board" hidden></div>
+    </div>
+
+    <button class="play-btn" hidden>Play</button>
+    <button class="reset-btn">Reset❓</button>
+
+    <div class="modal" hidden>
+      <div class="modal-content">
+        <p class="result"></p>
+
+        <button class="new-btn">New Game</button>
+      </div>
+    </div>
+  </body>
 </html>
