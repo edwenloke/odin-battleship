@@ -79,9 +79,9 @@ function renderPlayerBoard() {
     const x = Number(cell.dataset.x);
     const y = Number(cell.dataset.y);
 
-    const board = getPlayerGameBoard();
+    const player = getPlayerGameBoard();
 
-    const isOccupied = board.occupied.some(([occupiedX, occupiedY]) => {
+    const isOccupied = player.gameBoard.occupied.some(([occupiedX, occupiedY]) => {
       return x === occupiedX && y === occupiedY;
     });
 
@@ -91,7 +91,7 @@ function renderPlayerBoard() {
     }
 
     // Check marked ship
-    const isMarked = board.marked.some(([markedX, markedY]) => {
+    const isMarked = player.gameBoard.marked.some(([markedX, markedY]) => {
       return x === markedX && y === markedY;
     });
 
@@ -118,14 +118,14 @@ function renderComputerBoard() {
     const x = Number(cell.dataset.x);
     const y = Number(cell.dataset.y);
 
-    const board = getComputerGameBoard();
+    const computer = getComputerGameBoard();
 
-    const hasShip = board.occupied.some(([occupiedX, occupiedY]) => {
+    const hasShip = computer.gameBoard.occupied.some(([occupiedX, occupiedY]) => {
       return x === occupiedX && y === occupiedY;
     });
 
     // Check marked ship
-    const isMarked = board.marked.some(([markedX, markedY]) => {
+    const isMarked = computer.gameBoard.marked.some(([markedX, markedY]) => {
       return x === markedX && y === markedY;
     });
 
