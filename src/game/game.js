@@ -37,7 +37,7 @@ function init() {
   ];
 
   // Setup computer's board
-  randomlyPlaceShips(computerShips, computer);
+  randomlyPlaceComputerShips();
 }
 // Data for dom.js
 function getPlayerShips() {
@@ -68,9 +68,14 @@ function placePlayerShip(ship, coordinate) {
 }
 
 // Randomly Place
-function randomlyPlaceShips(playerShips, player) {
+function randomlyPlacePlayerShips() {
   playerShips.forEach((ship) => player.gameBoard.randomPlace(ship));
   playerShips.length = 0;
+}
+
+function randomlyPlaceComputerShips() {
+  computerShips.forEach((ship) => computer.gameBoard.randomPlace(ship));
+  computerShips.length = 0;
 }
 
 // Check whether game can start
@@ -135,8 +140,18 @@ function computerPlay() {
   }
 
   // If found ship attack adjacent
-  if (prevAttack === "hit" && !direction) {
+  if (prevAttack === "hit" && !hunt) {
     const targetCoordinates = getAdjacentCoordinate(originCoordinate);
+
+    if (targetCoordinates.length === 0) {
+      resetComputerTarget();
+
+      const coordinate = randomCoordinate();
+      prevAttack = attack(coordinate);
+      originCoordinate = coordinate;
+
+      return;
+    }
 
     hunt = true;
 
@@ -154,6 +169,17 @@ function computerPlay() {
     }
 
     const targetCoordinates = getAdjacentCoordinate(prevCoordinate);
+
+    if (targetCoordinates.length === 0) {
+      resetComputerTarget();
+
+      const coordinate = randomCoordinate();
+      prevAttack = attack(coordinate);
+      originCoordinate = coordinate;
+
+      return;
+    }
+
     prevAttack = attack(targetCoordinates[0]);
     prevCoordinate = targetCoordinates[0];
 
@@ -283,7 +309,7 @@ export {
   getComputerGameBoard,
   init,
   placePlayerShip,
-  randomlyPlaceShips,
+  randomlyPlacePlayerShips,
   canStartGame,
   attack,
   gameOver,
